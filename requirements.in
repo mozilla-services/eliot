@@ -15,7 +15,7 @@ jsonschema==4.17.3
 markus[datadog]==4.1.0
 msgpack==1.0.4
 pip-tools==6.12.1
-pytest==7.2.0
+pytest==7.2.1
 requests==2.28.1
 requests-mock==1.10.0
 sentry-sdk==1.12.1
