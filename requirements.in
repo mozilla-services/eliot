@@ -22,6 +22,6 @@ sentry-sdk==1.12.1
 Sphinx==5.1.1
 sphinxcontrib-httpdomain==1.8.1
 sphinx-rtd-theme==1.0.0
-symbolic==10.2.1
+symbolic==12.1.0
 urllib3==1.26.13
 werkzeug==2.2.2
