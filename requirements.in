@@ -1,7 +1,7 @@
 backoff==2.2.1
 boltons==23.1.1
 click==8.1.7
-datadog==0.47.0
+datadog==0.48.0
 dockerflow==2022.8.0
 everett==3.3.0
 falcon==3.1.3
