@@ -185,9 +185,9 @@ jinja2==3.0.3 \
     --hash=sha256:077ce6014f7b40d03b47d1f1ca4b0fc8328a692bd284016f806ed0eaca390ad8 \
     --hash=sha256:611bb273cd68f3b993fabdc4064fc858c5b47a973cb5aa7999ec1ba405c87cd7
     # via sphinx
-jsonschema==4.20.0 \
-    --hash=sha256:4f614fd46d8d61258610998997743ec5492a648b33cf478c1ddc23ed4598a5fa \
-    --hash=sha256:ed6231f0429ecf966f5bc8dfef245998220549cbbcf140f913b7464c52c3b6b3
+jsonschema==4.21.1 \
+    --hash=sha256:7996507afae316306f9e2290407761157c6f78002dcf7419acb99822143d1c6f \
+    --hash=sha256:85727c00279f5fa6bedbe6238d2aa6403bedd8b4864ab11207d07df3cc1b2ee5
     # via -r requirements.in
 jsonschema-specifications==2023.11.2 \
     --hash=sha256:9472fc4fea474cd74bea4a2b190daeccb5a9e4db2ea80efcf7a1b582fc9a81b8 \
