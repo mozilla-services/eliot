@@ -24,7 +24,6 @@ from falcon.errors import HTTPInternalServerError
 from fillmore.libsentry import set_up_sentry
 from fillmore.scrubber import Scrubber, Rule, SCRUB_RULES_DEFAULT
 import sentry_sdk
-from sentry_sdk.hub import Hub
 from sentry_sdk.integrations.wsgi import SentryWsgiMiddleware
 from sentry_sdk.utils import event_from_exception
 
@@ -257,16 +256,15 @@ class EliotApp(falcon.App):
             # makes things hard to find in the Sentry interface, so we stomp on that
             # with the req.path
             scope.transaction.name = req.path
-            hub = Hub.current
 
             event, hint = event_from_exception(
                 ex,
-                client_options=hub.client.options,
+                client_options=scope.get_client().options,
                 mechanism={"type": "eliot", "handled": False},
             )
 
             event["transaction"] = req.path
-            hub.capture_event(event, hint=hint)
+            scope.capture_event(event, hint=hint)
 
         LOGGER.error("Unhandled exception", exc_info=sys.exc_info())
         self._compose_error_response(req, resp, HTTPInternalServerError())

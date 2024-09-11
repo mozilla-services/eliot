@@ -570,9 +570,6 @@ def test_sentry_scrubbing(sentry_helper, cm_client, monkeypatch, tmpdir):
 
         (event,) = sentry_client.envelope_payloads
 
-    # Drop the "_meta" bit because we don't want to compare that.
-    del event["_meta"]
-
     differences = diff_structure(event, BROKEN_EVENT)
     assert differences == []
 
