@@ -1,5 +1,5 @@
 backoff==2.2.1
-boltons==24.1.0
+boltons==25.0.0
 click==8.1.8
 datadog==0.51.0
 dockerflow==2024.4.2
