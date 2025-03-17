@@ -97,6 +97,7 @@ FUNC 1260 4a 0 LdrpReadMemory
                 "000000000000000000000000000000000",
             ],
             ["Font Awesome 5 Free-Solid-900.otf", "000000000000000000000000000000000"],
+            ["libgallium-24.2.8-1~bpo12+rpt1.so", "686E9835D66E381253D84E5E01FEFAD30"],
         ],
     ],
     ids=counter(),
