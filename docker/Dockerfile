@@ -1,6 +1,6 @@
 # NOTE(smarnach): To upgrade Python to a new minor or major version, see
 # https://mozilla-eliot.readthedocs.io/en/latest/dev.html#how-to-upgrade-the-python-version
-FROM --platform=linux/amd64 python:3.11.13-slim-bookworm@sha256:7a3ed1226224bcc1fe5443262363d42f48cf832a540c1836ba8ccbeaadf8637c
+FROM --platform=linux/amd64 python:3.11.13-slim-bookworm@sha256:d54d74906041691f5fa471646d62cd3ef40abb3b4a9b94edc3c79b505418f530
 
 ARG userid=10001
 ARG groupid=10001
