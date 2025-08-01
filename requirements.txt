@@ -106,9 +106,9 @@ click==8.2.1 \
     #   -r requirements.in
     #   obs-common
     #   pip-tools
-datadog==0.51.0 \
-    --hash=sha256:3279534f831ae0b4ae2d8ce42ef038b4ab38e667d7ed6ff7437982d7a0cf5250 \
-    --hash=sha256:a9764f091c96af4e0996d4400b168fc5fba380f911d6d672c9dcd4773e29ea3f
+datadog==0.52.1 \
+    --hash=sha256:44c6deb563c4522dba206fba2e2bb93d3b04113c40191851ba3a241d82b5fd0b \
+    --hash=sha256:b8c92cd761618ee062f114171067e4c400d48c9f0dad16cb285042439d9d5d4e
     # via
     #   -r requirements.in
     #   markus
