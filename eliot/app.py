@@ -71,6 +71,8 @@ def configure_sentry(app_config):
         release=get_release_name(REPOROOT_DIR),
         host_id=app_config("hostname"),
         before_send=scrubber,
+        # Disable frame-local variables
+        include_local_variables=False,
     )
 
 

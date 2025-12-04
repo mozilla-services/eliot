@@ -50,16 +50,15 @@ BROKEN_EVENT = {
                 "stacktrace": {
                     "frames": [
                         {
-                            "abs_path": "/app/falcon/app.py",
+                            "abs_path": "/usr/local/lib/python3.11/site-packages/falcon/app.py",
                             "context_line": ANY,
                             "filename": "falcon/app.py",
-                            "function": "falcon.app.App.__call__",
-                            "in_app": True,
+                            "function": "__call__",
+                            "in_app": False,
                             "lineno": ANY,
                             "module": "falcon.app",
                             "post_context": ANY,
                             "pre_context": ANY,
-                            "vars": {},
                         },
                         {
                             "abs_path": "/app/eliot/health_resource.py",
@@ -71,11 +70,6 @@ BROKEN_EVENT = {
                             "module": "eliot.health_resource",
                             "post_context": ANY,
                             "pre_context": ANY,
-                            "vars": {
-                                "req": "<Request: GET 'http://localhost/__broken__'>",
-                                "resp": "<Response: 200 OK>",
-                                "self": ANY,
-                            },
                         },
                     ]
                 },
