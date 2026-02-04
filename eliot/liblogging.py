@@ -47,7 +47,7 @@ def set_up_logging(logging_level, debug=False, processname=None):
                 "format": "%(asctime)s %(levelname)s - %(processname)s - %(name)s - %(message)s"
             },
             "mozlog": {
-                "()": "dockerflow.logging.JsonLogFormatter",
+                "()": "dockerflow.logging.MozlogFormatter",
                 "logger_name": "eliot",
             },
         },
