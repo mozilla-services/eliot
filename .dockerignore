@@ -1,5 +1,4 @@
-.git
-.bash_history
-
-# Places where I put data I'm debugging / working on
-myanalysis/
+.git/
+.ruff_cache/
+.venv/
+__pycache__/
