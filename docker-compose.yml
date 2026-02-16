@@ -52,6 +52,7 @@ services:
     stop_signal: SIGKILL  # Doesn't seem to respond to anything else
     volumes:
       - $PWD:/app
+      - /app/.venv
 
   # https://github.com/willkg/kent
   fakesentry:

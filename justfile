@@ -53,13 +53,9 @@ docs: _env
 lint *args: _env
     docker compose run --rm --no-deps eliot bash ./bin/run_lint.sh {{args}}
 
-# Rebuild requirements.txt file after requirements.in changes.
-rebuild-reqs *args: _env
-    docker compose run --rm --no-deps eliot bash pip-compile --generate-hashes --strip-extras {{args}}
-
-# Verify that the requirements file is built by the version of Python that runs in the container.
-verify-reqs:
-    docker compose run --rm --no-deps eliot bash ./bin/run_verify_reqs.sh
+# Run uv inside the container
+uv *args: _env
+	docker compose run --rm --no-deps eliot bash uv {{args}}
 
 # Check how far behind different server environments are from main tip.
 service-status *args:

@@ -4,11 +4,14 @@ services:
   base:
     volumes:
       - .:/app
+      - /app/.venv
 
   eliot:
     volumes:
       - $PWD:/app
+      - /app/.venv
 
   test:
     volumes:
       - $PWD:/app
+      - /app/.venv

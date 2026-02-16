@@ -1,13 +1,14 @@
 # NOTE(smarnach): To upgrade Python to a new minor or major version, see
 # https://mozilla-eliot.readthedocs.io/en/latest/dev.html#how-to-upgrade-the-python-version
-FROM --platform=linux/amd64 python:3.11.14-slim-bookworm@sha256:bcbbec29f7a3f9cbee891e3cd69d7fe4dec7e281daf36cbd415ddd8ee2ba0077
+FROM --platform=linux/amd64 ghcr.io/astral-sh/uv:python3.11-bookworm-slim@sha256:4f5d923c9dcea037f57bda425dd209f3ec643da2f0b74227f68d09dab0b3bb36
 
 ARG userid=10001
 ARG groupid=10001
 
 ENV PYTHONUNBUFFERED=1 \
     PYTHONPATH=/app/ \
-    PORT=8000
+    PORT=8000 \
+    UV_PYTHON_DOWNLOADS=0
 
 EXPOSE $PORT
 
@@ -25,27 +26,16 @@ RUN apt-get update && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-# Install Python dependencies
-COPY requirements.txt /tmp/
-
-# Switch to /tmp to install dependencies outside home dir
-WORKDIR /tmp
-
-# 23.5 is incompatible with pip-tools < 7.5.3 due to
-# https://github.com/jazzband/pip-tools/issues/2252, and we can't upgrade
-# pip-tools due to this regression: https://github.com/jazzband/pip-tools/issues/2220.
-RUN pip install -U 'pip>=20,<23.5' && \
-    pip install --no-cache-dir --no-deps -r requirements.txt && \
-    pip check --disable-pip-version-check
-
-COPY . /app
-
-# Switch back to home directory
-WORKDIR /app
-
-RUN chown -R app:app /app
-
 USER app
+
+# Install Python dependencies
+RUN --mount=type=cache,uid=$userid,gid=$groupid,target=/home/app/.cache/uv \
+    --mount=type=bind,source=uv.lock,target=uv.lock \
+    --mount=type=bind,source=pyproject.toml,target=pyproject.toml \
+    uv sync --locked
+ENV PATH="/app/.venv/bin:$PATH"
+
+COPY --chown=app:app . /app
 
 ENTRYPOINT ["/bin/bash", "/app/bin/entrypoint.sh"]
 
