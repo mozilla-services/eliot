@@ -6,15 +6,15 @@ import pathlib
 import time
 from unittest.mock import ANY
 
-from everett.manager import ConfigManager, ConfigDictEnv, ConfigOSEnv
+import pytest
+from everett.manager import ConfigDictEnv, ConfigManager, ConfigOSEnv
 from fillmore.test import diff_structure
 from markus.testing import MetricsMock
-import pytest
 
 from eliot.cache_manager import (
+    LastUpdatedOrderedDict,
     count_sentry_scrub_error,
     get_cache_manager,
-    LastUpdatedOrderedDict,
 )
 
 
@@ -478,7 +478,11 @@ BROKEN_EVENT = {
         ]
     },
     "logger": "eliot.cache_manager",
-    "logentry": {"message": "Exception thrown while handling events.", "params": []},
+    "logentry": {
+        "formatted": "Exception thrown while handling events.",
+        "message": "Exception thrown while handling events.",
+        "params": [],
+    },
     "extra": {
         "processname": "tests",
         "asctime": ANY,
@@ -520,6 +524,13 @@ BROKEN_EVENT = {
         "version": ANY,
     },
     "platform": "python",
+    "_meta": {
+        "breadcrumbs": {
+            "": {
+                "len": ANY,
+            },
+        },
+    },
 }
 
 

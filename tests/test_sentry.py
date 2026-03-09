@@ -7,6 +7,7 @@ from unittest.mock import ANY
 
 from fillmore.test import diff_structure
 from markus.testing import MetricsMock
+from sentry_sdk.tracing import TransactionSource
 from werkzeug.test import Client
 
 from eliot.app import get_app, count_sentry_scrub_error
@@ -115,7 +116,7 @@ BROKEN_EVENT = {
     "server_name": "testnode",
     "timestamp": ANY,
     "transaction": "/__broken__",
-    "transaction_info": {"source": "route"},
+    "transaction_info": {"source": TransactionSource.ROUTE},
 }
 
 
