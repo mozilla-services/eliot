@@ -103,6 +103,8 @@ filterwarnings = [
     # sentry-sdk has a Falcon integration that needs some help and is currently
     # using a thing in Falcon that kicks up a DeprecatedWarning
     "ignore:The api_helpers module.*:falcon.util.deprecation.DeprecatedWarning",
+    # Fillmore uses send_default_pii=False, which is deprecated.
+    "ignore:The send_default_pii option is deprecated\\. Use data_collection instead\\.:DeprecationWarning",
 ]
 
 
